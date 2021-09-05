@@ -19,11 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="用户表">
+    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="密码加盐值">
+      <change afterPath="$PROJECT_DIR$/user_srv/proto/user.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/model/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/model/main/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="用户表" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户表" />
+    <MESSAGE value="密码加盐值" />
+    <option name="LAST_COMMIT_MESSAGE" value="密码加盐值" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -111,29 +112,33 @@
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="866" y="380" key="EnvironmentVariablesDialog/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630768197775" />
-    <state width="1878" height="264" key="GridCell.Tab.0.bottom" timestamp="1630856205062">
+    <state width="1878" height="264" key="GridCell.Tab.0.bottom" timestamp="1630861091653">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.bottom/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856205062" />
-    <state width="1878" height="264" key="GridCell.Tab.0.center" timestamp="1630856205061">
+    <state width="1878" height="264" key="GridCell.Tab.0.bottom/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091653" />
+    <state width="1878" height="264" key="GridCell.Tab.0.center" timestamp="1630861091652">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.center/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856205061" />
-    <state width="1878" height="264" key="GridCell.Tab.0.left" timestamp="1630856205060">
+    <state width="1878" height="264" key="GridCell.Tab.0.center/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091652" />
+    <state width="1878" height="264" key="GridCell.Tab.0.left" timestamp="1630861091652">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.left/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856205060" />
-    <state width="1878" height="264" key="GridCell.Tab.0.right" timestamp="1630856205061">
+    <state width="1878" height="264" key="GridCell.Tab.0.left/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091652" />
+    <state width="1878" height="264" key="GridCell.Tab.0.right" timestamp="1630861091653">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.right/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856205061" />
+    <state width="1878" height="264" key="GridCell.Tab.0.right/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091653" />
     <state x="461" y="150" key="SettingsEditor" timestamp="1630768201105">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="461" y="150" key="SettingsEditor/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630768201105" />
-    <state x="560" y="251" key="Vcs.Push.Dialog.v2" timestamp="1630853895285">
+    <state x="560" y="251" key="Vcs.Push.Dialog.v2" timestamp="1630856506342">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state x="560" y="251" key="Vcs.Push.Dialog.v2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630853895285" />
+    <state x="560" y="251" key="Vcs.Push.Dialog.v2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856506342" />
+    <state x="775" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1630856492129">
+      <screen x="0" y="23" width="1920" height="977" />
+    </state>
+    <state x="775" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856492129" />
   </component>
 </project>
