@@ -1,25 +1,25 @@
 package main
 
 import (
-	"crypto/md5"
-	"encoding/hex"
-	"io"
+	"crypto/sha512"
+	"fmt"
 	"log"
 	"mbSrvs/user_srv/model"
 	"os"
 	"time"
 
+	"github.com/anaskhan96/go-password-encoder"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	logger2 "gorm.io/gorm/logger"
 	"gorm.io/gorm/schema"
 )
 
-func genMd5(code string) string {
-	md := md5.New()
-	_, _ = io.WriteString(md, code)
-	return hex.EncodeToString(md.Sum(nil))
-}
+//func genMd5(code string) string {
+//	md := md5.New()
+//	_, _ = io.WriteString(md, code)
+//	return hex.EncodeToString(md.Sum(nil))
+//}
 
 func main() {
 
@@ -45,7 +45,7 @@ func main() {
 		panic(err)
 	}
 
-	_ = db.AutoMigrate(&model.User{})
+	//_ = db.AutoMigrate(&model.User{})
 
 	birthday, err := time.ParseInLocation("2006-01-02 15:04:04", "1998-07-26 00:00:00", time.Local)
 
@@ -53,15 +53,31 @@ func main() {
 		panic("时间转换出错:" + err.Error())
 	}
 
-	user := model.User{
-		Mobile:   "15700180001",
-		Password: genMd5("15700180001"),
-		NickName: "小王子",
-		Birthday: &birthday,
-		Gender:   0,
-		Role:     1,
+	for i := 0; i < 10; i++ {
+		user := model.User{
+			Mobile:   fmt.Sprintf("1570018000%d", i),
+			Password: GenPwd(fmt.Sprintf("admin@#%d", i)),
+			NickName: fmt.Sprintf("小王子%d", i),
+			Birthday: &birthday,
+			Gender:   0,
+			Role:     1,
+		}
+		db.Save(&user)
 	}
 
-	db.Create(&user)
+	//db.Create(&user)
 
+}
+
+func GenPwd(pwd string) string {
+	options := &password.Options{
+		SaltLen:      16,
+		Iterations:   100,
+		KeyLen:       32,
+		HashFunction: sha512.New,
+	}
+	salt, genPwd := password.Encode(pwd, options)
+	//check := password.Verify("123456",salt,pwd,options)
+
+	return fmt.Sprintf("$pbkdf2-sha512$%s$%s", salt, genPwd)
 }
