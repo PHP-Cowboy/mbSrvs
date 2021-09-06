@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+// protoc -I . user.proto --go_out=plugins=grpc:.
 option go_package = ".;proto";
 
 import "google/protobuf/empty.proto";
@@ -10,7 +10,7 @@ service User {
   rpc GetUserById(IdRequest) returns (UserInfoResponse); //通过用户id查询用户
   rpc CreateUser(CreateUserInfo) returns (UserInfoResponse); //创建用户
   rpc UpdateUser(UpdateUserInfo) returns (google.protobuf.Empty); //更新用户
-  rpc CheckPassword(PasswordCheckInfo) returns (UserListResponse); //验证用户密码，结合手机号查询可以进行登录
+  rpc CheckPassword(PasswordCheckInfo) returns (CheckResponse); //验证用户密码，结合手机号查询可以进行登录
 }
 
 message PageInfo {
@@ -57,5 +57,9 @@ message UpdateUserInfo {
 message PasswordCheckInfo {
   string password = 1;
   string encryptedPassword = 2;
+}
+
+message CheckResponse {
+  bool status = 1;
 }
 
