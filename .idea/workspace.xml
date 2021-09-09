@@ -19,14 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="grpc proto 生成代码">
-      <change afterPath="$PROJECT_DIR$/user_srv/global/global.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_srv/handler/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_srv/test/user.go" afterDir="false" />
+    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="用户服务">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/proto/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/proto/user.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/proto/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/proto/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_srv/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/global/global.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +117,8 @@
     <MESSAGE value="用户表" />
     <MESSAGE value="密码加盐值" />
     <MESSAGE value="grpc proto 生成代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="grpc proto 生成代码" />
+    <MESSAGE value="用户服务" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户服务" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -137,72 +133,68 @@
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="866" y="380" key="EnvironmentVariablesDialog/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630768197775" />
-    <state width="1878" height="326" key="GridCell.Tab.0.bottom" timestamp="1630947617134">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="264" key="GridCell.Tab.0.bottom" timestamp="1631189908907">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.bottom/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091653" />
+    <state width="1878" height="264" key="GridCell.Tab.0.bottom/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189908907" />
     <state width="1878" height="326" key="GridCell.Tab.0.bottom/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617134" />
-    <state width="1878" height="326" key="GridCell.Tab.0.center" timestamp="1630947617133">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="264" key="GridCell.Tab.0.center" timestamp="1631189908907">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.center/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091652" />
+    <state width="1878" height="264" key="GridCell.Tab.0.center/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189908907" />
     <state width="1878" height="326" key="GridCell.Tab.0.center/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617133" />
-    <state width="1878" height="326" key="GridCell.Tab.0.left" timestamp="1630947617133">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="264" key="GridCell.Tab.0.left" timestamp="1631189908906">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.left/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091652" />
+    <state width="1878" height="264" key="GridCell.Tab.0.left/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189908906" />
     <state width="1878" height="326" key="GridCell.Tab.0.left/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617133" />
-    <state width="1878" height="326" key="GridCell.Tab.0.right" timestamp="1630947617134">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="264" key="GridCell.Tab.0.right" timestamp="1631189908907">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="264" key="GridCell.Tab.0.right/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861091653" />
+    <state width="1878" height="264" key="GridCell.Tab.0.right/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189908907" />
     <state width="1878" height="326" key="GridCell.Tab.0.right/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617134" />
-    <state width="1878" height="326" key="GridCell.Tab.1.bottom" timestamp="1630947617135">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="326" key="GridCell.Tab.1.bottom" timestamp="1631189869020">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
+    <state width="1878" height="326" key="GridCell.Tab.1.bottom/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189869020" />
     <state width="1878" height="326" key="GridCell.Tab.1.bottom/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617135" />
-    <state width="1878" height="326" key="GridCell.Tab.1.center" timestamp="1630947617135">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="326" key="GridCell.Tab.1.center" timestamp="1631189869019">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
+    <state width="1878" height="326" key="GridCell.Tab.1.center/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189869019" />
     <state width="1878" height="326" key="GridCell.Tab.1.center/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617135" />
-    <state width="1878" height="326" key="GridCell.Tab.1.left" timestamp="1630947617134">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="326" key="GridCell.Tab.1.left" timestamp="1631189869019">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
+    <state width="1878" height="326" key="GridCell.Tab.1.left/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189869019" />
     <state width="1878" height="326" key="GridCell.Tab.1.left/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617134" />
-    <state width="1878" height="326" key="GridCell.Tab.1.right" timestamp="1630947617135">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state width="1878" height="326" key="GridCell.Tab.1.right" timestamp="1631189869020">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
+    <state width="1878" height="326" key="GridCell.Tab.1.right/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189869020" />
     <state width="1878" height="326" key="GridCell.Tab.1.right/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947617135" />
     <state x="461" y="150" key="SettingsEditor" timestamp="1630768201105">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="461" y="150" key="SettingsEditor/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630768201105" />
-    <state x="560" y="251" key="Vcs.Push.Dialog.v2" timestamp="1630861850890">
-      <screen x="0" y="23" width="1920" height="977" />
-    </state>
-    <state x="560" y="251" key="Vcs.Push.Dialog.v2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861850890" />
-    <state width="960" height="488" key="XDebugger.FullValuePopup" timestamp="1630946893953">
+    <state x="560" y="254" key="Vcs.Push.Dialog.v2" timestamp="1630947729371">
       <screen x="0" y="23" width="1920" height="989" />
     </state>
+    <state x="560" y="251" key="Vcs.Push.Dialog.v2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630861850890" />
+    <state x="560" y="254" key="Vcs.Push.Dialog.v2/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630947729371" />
+    <state width="960" height="483" key="XDebugger.FullValuePopup" timestamp="1631189462058">
+      <screen x="0" y="23" width="1920" height="977" />
+    </state>
+    <state width="960" height="483" key="XDebugger.FullValuePopup/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189462058" />
     <state width="960" height="488" key="XDebugger.FullValuePopup/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630946893953" />
     <state x="775" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1630856492129">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="775" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1630856492129" />
-    <state x="543" y="247" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1630946661652">
-      <screen x="0" y="23" width="1920" height="989" />
+    <state x="543" y="244" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1631189442851">
+      <screen x="0" y="23" width="1920" height="977" />
     </state>
+    <state x="543" y="244" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1280.23.1280.777/0.23.1920.977@0.23.1920.977" timestamp="1631189442851" />
     <state x="543" y="247" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1280.23.1280.777/0.23.1920.989@0.23.1920.989" timestamp="1630946661652" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/user_srv/test/user.go</url>
-          <line>30</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

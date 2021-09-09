@@ -13,7 +13,7 @@ import (
 
 var DB *gorm.DB
 
-func Init() {
+func init() {
 	dsn := "root:123456@tcp(127.0.0.1:3306)/shop_user_srv?charset=utf8mb4&parseTime=True&loc=Local"
 
 	logger := logger2.New(
