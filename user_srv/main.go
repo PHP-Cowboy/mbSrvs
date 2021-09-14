@@ -3,10 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
+	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"mbSrvs/user_srv/handler"
+	"mbSrvs/user_srv/initialize"
 	"mbSrvs/user_srv/proto"
 	"net"
+
+	"google.golang.org/grpc/health"
+	"google.golang.org/grpc/health/grpc_health_v1"
 )
 
 func main() {
@@ -14,8 +19,13 @@ func main() {
 	Port := flag.Int("port", 50051, "端口号")
 
 	flag.Parse()
-	fmt.Println("ip:%s", *IP)
-	fmt.Println("port:%s", *Port)
+
+	initialize.InitLogger()
+	initialize.InitConfig()
+	initialize.InitDB()
+
+	zap.S().Info("ip:%s", *IP)
+	zap.S().Info("port:%s", *Port)
 
 	server := grpc.NewServer()
 	proto.RegisterUserServer(server, &handler.UserServer{})
@@ -24,6 +34,9 @@ func main() {
 	if err != nil {
 		panic("failed to listen:" + err.Error())
 	}
+
+	//服务注册 && 健康检查
+	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
 
 	err = server.Serve(listener)
 

@@ -1,8 +1,9 @@
-package global
+package initialize
 
 import (
+	"fmt"
 	"log"
-	"mbSrvs/user_srv/config"
+	"mbSrvs/user_srv/global"
 	"os"
 	"time"
 
@@ -12,13 +13,19 @@ import (
 	"gorm.io/gorm/schema"
 )
 
-var (
-	DB           *gorm.DB
-	ServerConfig = &config.ServerConfig{}
-)
+func InitDB() {
+	//dsn := "root:123456@tcp(127.0.0.1:3306)/shop_user_srv?charset=utf8mb4&parseTime=True&loc=Local"
 
-func init() {
-	dsn := "root:123456@tcp(127.0.0.1:3306)/shop_user_srv?charset=utf8mb4&parseTime=True&loc=Local"
+	info := global.ServerConfig.MysqlInfo
+
+	dsn := fmt.Sprintf(
+		"%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		info.User,
+		info.Password,
+		info.Host,
+		info.Port,
+		info.Name,
+	)
 
 	logger := logger2.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags),
@@ -30,7 +37,7 @@ func init() {
 	)
 
 	var err error
-	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
+	global.DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			//TablePrefix: "t_", // 表名前缀，`User` 的表名应该是 `t_users`
 			SingularTable: true, // 使用单数表名，启用该选项，此时，`User` 的表名应该是 `t_user`
