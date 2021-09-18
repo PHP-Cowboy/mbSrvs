@@ -1,6 +1,7 @@
 package global
 
 import (
+	"fmt"
 	"log"
 	"mbSrvs/user_srv/config"
 	"os"
@@ -18,7 +19,16 @@ var (
 )
 
 func init() {
-	dsn := "root:123456@tcp(127.0.0.1:3306)/shop_user_srv?charset=utf8mb4&parseTime=True&loc=Local"
+
+	info := ServerConfig.MysqlInfo
+
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		info.User,
+		info.Password,
+		info.Host,
+		info.Port,
+		info.Name,
+	)
 
 	logger := logger2.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags),
