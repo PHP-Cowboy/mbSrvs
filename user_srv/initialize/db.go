@@ -14,7 +14,6 @@ import (
 )
 
 func InitDB() {
-	//dsn := "root:123456@tcp(127.0.0.1:3306)/shop_user_srv?charset=utf8mb4&parseTime=True&loc=Local"
 
 	info := global.ServerConfig.MysqlInfo
 

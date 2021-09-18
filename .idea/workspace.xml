@@ -22,12 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="参数yaml配置 &amp;&amp; 日志 &amp;&amp; 引入consul">
+    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="mysql init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user_srv/config-pro.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/config-pro.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_srv/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/global/global.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_srv/initialize/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/initialize/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable..is.expanded" value="false" />
@@ -77,7 +76,7 @@
       <recent name="$PROJECT_DIR$/user_srv" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build mbSrvs/user_srv/test">
+  <component name="RunManager" selected="Go Build.go build mbSrvs/user_srv">
     <configuration name="go build mbSrvs/user_srv" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="mbSrvs" />
       <working_directory value="$PROJECT_DIR$" />
@@ -134,7 +133,8 @@
     <MESSAGE value="grpc proto 生成代码" />
     <MESSAGE value="用户服务" />
     <MESSAGE value="参数yaml配置 &amp;&amp; 日志 &amp;&amp; 引入consul" />
-    <option name="LAST_COMMIT_MESSAGE" value="参数yaml配置 &amp;&amp; 日志 &amp;&amp; 引入consul" />
+    <MESSAGE value="mysql init" />
+    <option name="LAST_COMMIT_MESSAGE" value="mysql init" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

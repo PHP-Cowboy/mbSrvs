@@ -5,11 +5,13 @@ import (
 	"fmt"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
+	"mbSrvs/user_srv/global"
 	"mbSrvs/user_srv/handler"
 	"mbSrvs/user_srv/initialize"
 	"mbSrvs/user_srv/proto"
 	"net"
 
+	"github.com/hashicorp/consul/api"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
 )
@@ -35,8 +37,38 @@ func main() {
 		panic("failed to listen:" + err.Error())
 	}
 
-	//服务注册 && 健康检查
+	//注册服务健康检查
 	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
+
+	//服务注册
+	cfg := api.DefaultConfig()
+	cfg.Address = fmt.Sprintf("%s:%d", global.ServerConfig.ConsulInof.Host, global.ServerConfig.ConsulInof.Port)
+	client, err := api.NewClient(cfg)
+	if err != nil {
+		panic(err)
+	}
+	//生成对应的检查对象
+	check := &api.AgentServiceCheck{
+		GRPC:                           "http://192.168.0.106:50051",
+		Timeout:                        "5s",
+		Interval:                       "5s",
+		DeregisterCriticalServiceAfter: "10s",
+	}
+
+	//生成注册对象
+	registration := new(api.AgentServiceRegistration)
+	registration.Name = global.ServerConfig.Name
+	registration.ID = global.ServerConfig.Name
+	registration.Port = *Port
+	registration.Tags = []string{"cowboy", "user", "srv"}
+	registration.Address = "192.168.0.106"
+	registration.Check = check
+
+	err = client.Agent().ServiceRegister(registration)
+
+	if err != nil {
+		zap.S().Panicf(err.Error())
+	}
 
 	err = server.Serve(listener)
 
