@@ -5,6 +5,7 @@ import (
 	"crypto/sha512"
 	"fmt"
 	"github.com/anaskhan96/go-password-encoder"
+	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"strings"
@@ -17,8 +18,6 @@ import (
 
 	"mbSrvs/user_srv/proto"
 )
-
-var Db = global.DB
 
 type UserServer struct{}
 
@@ -56,8 +55,9 @@ func ModelToResponse(user model.User) proto.UserInfoResponse {
 }
 
 func (s *UserServer) GetUserList(c context.Context, req *proto.PageInfo) (*proto.UserListResponse, error) {
+	zap.S().Info(global.DB)
 	var users []model.User
-	result := Db.Find(&users)
+	result := global.DB.Find(&users)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -65,7 +65,7 @@ func (s *UserServer) GetUserList(c context.Context, req *proto.PageInfo) (*proto
 	rsp.Total = uint32(result.RowsAffected)
 
 	//分页数据
-	Db.Scopes(Paginate(int(req.Pn), int(req.PSize))).Find(&users)
+	global.DB.Scopes(Paginate(int(req.Pn), int(req.PSize))).Find(&users)
 
 	for _, user := range users {
 		userInfoRsp := ModelToResponse(user)
@@ -77,7 +77,7 @@ func (s *UserServer) GetUserList(c context.Context, req *proto.PageInfo) (*proto
 func (s *UserServer) GetUserByMobile(c context.Context, req *proto.MobileRequest) (*proto.UserInfoResponse, error) {
 	var user model.User
 
-	result := Db.Where("mobile = ?", req.Mobile).Find(&user)
+	result := global.DB.Where("mobile = ?", req.Mobile).Find(&user)
 
 	if result.Error != nil {
 		return nil, result.Error
@@ -93,7 +93,7 @@ func (s *UserServer) GetUserByMobile(c context.Context, req *proto.MobileRequest
 func (s *UserServer) GetUserById(c context.Context, req *proto.IdRequest) (*proto.UserInfoResponse, error) {
 	var user model.User
 
-	result := Db.First(&user, req.Id)
+	result := global.DB.First(&user, req.Id)
 
 	if result.Error != nil {
 		return nil, result.Error
@@ -109,7 +109,7 @@ func (s *UserServer) GetUserById(c context.Context, req *proto.IdRequest) (*prot
 func (s *UserServer) CreateUser(c context.Context, req *proto.CreateUserInfo) (*proto.UserInfoResponse, error) {
 	var user model.User
 
-	result := Db.Where(map[string]interface{}{"mobile": req.Mobile}).Find(&user)
+	result := global.DB.Where(map[string]interface{}{"mobile": req.Mobile}).Find(&user)
 
 	if result.Error != nil {
 		return nil, result.Error
@@ -132,7 +132,7 @@ func (s *UserServer) CreateUser(c context.Context, req *proto.CreateUserInfo) (*
 	user.Password = fmt.Sprintf("$pbkdf2-sha512$%s$%s", salt, genPwd)
 	user.NickName = req.NickName
 
-	result = Db.Create(&user)
+	result = global.DB.Create(&user)
 
 	if result.Error != nil {
 		return nil, result.Error
@@ -144,7 +144,7 @@ func (s *UserServer) CreateUser(c context.Context, req *proto.CreateUserInfo) (*
 }
 func (s *UserServer) UpdateUser(c context.Context, req *proto.UpdateUserInfo) (*emptypb.Empty, error) {
 	var user model.User
-	result := Db.First(&user, req.Id)
+	result := global.DB.First(&user, req.Id)
 
 	if result.Error != nil {
 		return nil, result.Error
@@ -159,7 +159,7 @@ func (s *UserServer) UpdateUser(c context.Context, req *proto.UpdateUserInfo) (*
 	user.Birthday = &birthDay
 	user.NickName = req.NickName
 	user.Gender = uint8(req.Gender)
-	result = Db.Save(&user)
+	result = global.DB.Save(&user)
 	if result.Error != nil {
 		return nil, status.Error(codes.Internal, result.Error.Error())
 	}

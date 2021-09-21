@@ -22,11 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="mysql init">
+    <list default="true" id="a2d90d8f-3278-48d6-ad57-4480629fb424" name="默认的" comment="服务注册 &amp;&amp; 健康检查">
+      <change afterPath="$PROJECT_DIR$/goods_srv/config-pro.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods_srv/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods_srv/model/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods_srv/model/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods_srv/model/main/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/config-pro.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/config-pro.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/global/global.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_srv/initialize/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/initialize/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_srv/handler/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/handler/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user_srv/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,18 +68,28 @@
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user_srv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/goods_srv" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/goods_srv" />
       <recent name="$PROJECT_DIR$/user_srv" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/user_srv" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build mbSrvs/user_srv">
+  <component name="RunManager" selected="Go Build.go build mbSrvs/goods_srv/model/main">
+    <configuration name="go build mbSrvs/goods_srv/model/main" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="mbSrvs" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="mbSrvs/goods_srv/model/main" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/goods_srv/model/main/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build mbSrvs/user_srv" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="mbSrvs" />
       <working_directory value="$PROJECT_DIR$" />
@@ -106,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build mbSrvs/goods_srv/model/main" />
         <item itemvalue="Go Build.go build mbSrvs/user_srv" />
         <item itemvalue="Go Build.go build mbSrvs/user_srv/test" />
       </list>
@@ -134,7 +148,8 @@
     <MESSAGE value="用户服务" />
     <MESSAGE value="参数yaml配置 &amp;&amp; 日志 &amp;&amp; 引入consul" />
     <MESSAGE value="mysql init" />
-    <option name="LAST_COMMIT_MESSAGE" value="mysql init" />
+    <MESSAGE value="服务注册 &amp;&amp; 健康检查" />
+    <option name="LAST_COMMIT_MESSAGE" value="服务注册 &amp;&amp; 健康检查" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

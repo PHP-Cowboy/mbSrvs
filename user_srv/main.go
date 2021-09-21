@@ -50,9 +50,9 @@ func main() {
 	//生成对应的检查对象
 	check := &api.AgentServiceCheck{
 		GRPC:                           "http://192.168.0.106:50051",
-		Timeout:                        "5s",
-		Interval:                       "5s",
-		DeregisterCriticalServiceAfter: "10s",
+		Timeout:                        "50s",
+		Interval:                       "50s",
+		DeregisterCriticalServiceAfter: "100s",
 	}
 
 	//生成注册对象
