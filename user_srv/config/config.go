@@ -16,5 +16,5 @@ type ConsulConfig struct {
 type ServerConfig struct {
 	Name       string       `mapstructure:"name" json:"name"`
 	MysqlInfo  MysqlConfig  `mapstructure:"mysql" json:"mysql"`
-	ConsulInof ConsulConfig `mapstructure:"consul" json:"consul"`
+	ConsulInfo ConsulConfig `mapstructure:"consul" json:"consul"`
 }

@@ -42,14 +42,17 @@ func main() {
 
 	//服务注册
 	cfg := api.DefaultConfig()
-	cfg.Address = fmt.Sprintf("%s:%d", global.ServerConfig.ConsulInof.Host, global.ServerConfig.ConsulInof.Port)
+
+	consulInfo := global.ServerConfig.ConsulInfo
+
+	cfg.Address = fmt.Sprintf("%s:%d", consulInfo.Host, consulInfo.Port)
 	client, err := api.NewClient(cfg)
 	if err != nil {
 		panic(err)
 	}
 	//生成对应的检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           "192.168.3.253:50051",
+		GRPC:                           fmt.Sprintf("%s:%d", consulInfo.Host, consulInfo.Port),
 		Timeout:                        "50s",
 		Interval:                       "50s",
 		DeregisterCriticalServiceAfter: "100s",
@@ -61,7 +64,7 @@ func main() {
 	registration.ID = global.ServerConfig.Name
 	registration.Port = *Port
 	registration.Tags = []string{"cowboy", "user", "srv"}
-	registration.Address = "192.168.3.253"
+	registration.Address = consulInfo.Host
 	registration.Check = check
 
 	err = client.Agent().ServiceRegister(registration)

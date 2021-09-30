@@ -1,12 +1,12 @@
 mysql:
-  host: '127.0.0.1'
+  host: '81.68.105.165'
   port: 3306
   user: 'root'
-  password: '123456'
+  password: 'root'
   db: 'shop_user_srv'
 
 name: 'user-srv'
 
 consul:
-  host: '192.168.3.253'
+  host: '192.168.3.73'
   port: 8500
