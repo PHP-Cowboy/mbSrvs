@@ -39,8 +39,8 @@ func Paginate(page, pageSize int) func(db *gorm.DB) *gorm.DB {
 	}
 }
 
-func ModelToResponse(user model.User) proto.UserInfoResponse {
-	userInfo := proto.UserInfoResponse{
+func ModelToResponse(user model.User) (userInfo proto.UserInfoResponse) {
+	userInfo = proto.UserInfoResponse{
 		Id:       uint64(user.Id),
 		Password: user.Password,
 		Mobile:   user.Mobile,
@@ -51,7 +51,7 @@ func ModelToResponse(user model.User) proto.UserInfoResponse {
 	if user.Birthday != nil {
 		userInfo.Birthday = uint64(user.Birthday.Unix())
 	}
-	return userInfo
+	return
 }
 
 func (s *UserServer) GetUserList(c context.Context, req *proto.PageInfo) (*proto.UserListResponse, error) {

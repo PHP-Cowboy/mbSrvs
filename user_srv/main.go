@@ -49,7 +49,7 @@ func main() {
 	}
 	//生成对应的检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           "http://192.168.0.106:50051",
+		GRPC:                           "192.168.3.253:50051",
 		Timeout:                        "50s",
 		Interval:                       "50s",
 		DeregisterCriticalServiceAfter: "100s",
@@ -61,7 +61,7 @@ func main() {
 	registration.ID = global.ServerConfig.Name
 	registration.Port = *Port
 	registration.Tags = []string{"cowboy", "user", "srv"}
-	registration.Address = "192.168.0.106"
+	registration.Address = "192.168.3.253"
 	registration.Check = check
 
 	err = client.Agent().ServiceRegister(registration)
