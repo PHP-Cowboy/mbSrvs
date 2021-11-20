@@ -6,7 +6,7 @@ import (
 )
 
 type BaseModel struct {
-	Id        uint           `gorm:"primaryKey;AUTO_INCREMENT;unsigned;comment:id"`
+	Id        uint           `gorm:"primaryKey unsigned;AUTO_INCREMENT;comment:id"`
 	CreatedAt time.Time      `gorm:"column:add_time;comment:创建时间"`
 	UpdatedAt time.Time      `gorm:"column:update_time;comment:更新时间"`
 	DeletedAt gorm.DeletedAt `gorm:";comment:删除时间"`
